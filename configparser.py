@@ -1,6 +1,6 @@
-import ConfigParser
+import configparser
 
-Config = ConfigParser.ConfigParser()
+Config = configparser.ConfigParser()
 
 file = input("\nEnter the file location: ")
 Config.read(file)
