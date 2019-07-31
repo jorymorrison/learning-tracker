@@ -13,7 +13,7 @@ def ConfigSectionMap(section):
             print("exception on %s!" % option)
             dict1[option] = None
     return dict1
-    
-    Name = ConfigSectionMap("pluralsight")['name']
-    URL = ConfigSectionMap("pluralsight")['url']
-    Key = ConfigSectionMap("pluralsight")['key']
+
+Name = ConfigSectionMap("pluralsight")['name']
+URL = ConfigSectionMap("pluralsight")['url']
+Key = ConfigSectionMap("pluralsight")['key']
