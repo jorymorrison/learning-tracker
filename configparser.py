@@ -1,5 +1,9 @@
 import ConfigParser
+
 Config = ConfigParser.ConfigParser()
+
+file = input("\nEnter the file location: ")
+Config.read(file)
 
 def ConfigSectionMap(section):
     dict1 = {}
