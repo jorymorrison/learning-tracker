@@ -15,5 +15,5 @@ def ConfigSectionMap(section):
     return dict1
 
 Name = ConfigSectionMap("pluralsight")['name']
-URL = ConfigSectionMap("pluralsight")['url']
+Url = ConfigSectionMap("pluralsight")['url']
 Key = ConfigSectionMap("pluralsight")['key']
