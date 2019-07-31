@@ -18,6 +18,7 @@ def ConfigSectionMap(section):
             dict1[option] = None
     return dict1
 
-Name = ConfigSectionMap("pluralsight")['name']
-Url = ConfigSectionMap("pluralsight")['url']
-Api = ConfigSectionMap("pluralsight")['api']
+site = input("\nEnter the site you want info from: ")
+Name = ConfigSectionMap(site)['name']
+Url = ConfigSectionMap(site)['url']
+Api = ConfigSectionMap(site)['api']
