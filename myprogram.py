@@ -5,8 +5,23 @@ import argparse
 #parser.add_argument('site', metavar='N', type=str, nargs='+', help='the site you wish to request from')
 #args = parser.parse_args()
 
-Config = configparser.ConfigParser()
+def get_api_token(file):
+    with open(file, encoding='utf-8-sig') as json_file:
+        r = json.loads(json_file.read())
+        return r['results']
 
+def get_base64_encoded_header(client_id, client_secret):
+    auth_token = 'Basic' + base64.b64encode("{}:{}".format(client_id, client_secret).encode{}).decode('ascii')
+    headers = {'Authorization':auth_token}
+    return headers
+
+def get_api_response(portal_name, portal_id, client_id, client_secret):
+    url = 'https://' + portal_name + '.udemy.com/api-2.0/organizations/' + str(portal_id) + '/courses/list'
+    r = requests.request("GET, url, headers=get_base64_encoded_header(client_id, client_secret))
+    return r
+    
+Config = configparser.ConfigParser()
+    
 #file = input("\nEnter the file location: ")
 Config.read(".learning-config")
 
@@ -27,8 +42,8 @@ def ConfigSectionMap(section):
 #print(site)
 Name = ConfigSectionMap("udemy")['name']
 Url = ConfigSectionMap("udemy")['url']
-Client = ConfigSectionMap("udemy")['client id']
-Secret = ConfigSectionMap("udemy")['secret id']
+client_id = ConfigSectionMap("udemy")['client id']
+client_secret = ConfigSectionMap("udemy")['secret id']
 Org = ConfigSectionMap("udemy")['org id']
 
 print("Name of site: " + Name)
