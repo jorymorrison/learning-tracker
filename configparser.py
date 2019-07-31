@@ -20,4 +20,4 @@ def ConfigSectionMap(section):
 
 Name = ConfigSectionMap("pluralsight")['name']
 Url = ConfigSectionMap("pluralsight")['url']
-Key = ConfigSectionMap("pluralsight")['key']
+Api = ConfigSectionMap("pluralsight")['api']
