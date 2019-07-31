@@ -27,8 +27,12 @@ def ConfigSectionMap(section):
 #print(site)
 Name = ConfigSectionMap("udemy")['name']
 Url = ConfigSectionMap("udemy")['url']
-Api = ConfigSectionMap("udemy")['api']
+Client = ConfigSectionMap("udemy")['client id']
+Secret = ConfigSectionMap("udemy")['secret id']
+Org = ConfigSectionMap("udemy")['org id']
 
 print("Name of site: " + Name)
 print("Site URL: " + Url)
-print("API key: " + Api)
+print("Client id: " + Client)
+print("API key: " + Secret)
+print("Org id: " + Org)
