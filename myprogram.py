@@ -23,8 +23,8 @@ def get_base64_encoded_header(client_id, client_secret):
     print(headers)
     return headers
 
-def get_api_response(portal_name, portal_id, client_id, client_secret):
-    url = 'https://' + portal_name + '.udemy.com/api-2.0/organizations/' + str(portal_id) + '/courses/list'
+def get_api_response(portal_name, org_id, client_id, client_secret):
+    url = 'https://' + portal_name + '.udemy.com/api-2.0/organizations/' + str(org_id) + '/courses/list'
     r = requests.request("GET", url, headers=get_base64_encoded_header(client_id, client_secret))
     return r
     
@@ -49,14 +49,15 @@ def ConfigSectionMap(section):
 #site = args.site
 #print(site)
 Name = ConfigSectionMap("udemy")['name']
-Url = ConfigSectionMap("udemy")['url']
+portal_name = ConfigSectionMap("udemy")['portal name']
 client_id = ConfigSectionMap("udemy")['client id']
 client_secret = ConfigSectionMap("udemy")['secret id']
-Org = ConfigSectionMap("udemy")['org id']
+org_id = ConfigSectionMap("udemy")['org id']
 
 print("\nName of site: " + Name)
-print("Site URL: " + Url)
+print("Portal name: " + portal_name)
 print("Client id: " + client_id)
 print("API key: " + client_secret)
-print("Org id: " + Org)
-get_base64_encoded_header(client_id, client_secret)
+print("Org id: " + org_id)
+print("")
+print(get_api_response(portal_name, org_id, client_id, client_secret))
