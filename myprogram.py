@@ -1,5 +1,10 @@
 import configparser
 import argparse
+import base64
+import json
+import requests
+import sys
+from os import path
 
 #parser = argparse.ArgumentParser(description='Request from a site.')
 #parser.add_argument('site', metavar='N', type=str, nargs='+', help='the site you wish to request from')
@@ -11,8 +16,11 @@ def get_api_token(file):
         return r['results']
 
 def get_base64_encoded_header(client_id, client_secret):
-    auth_token = 'Basic' + base64.b64encode("{}:{}".format(client_id, client_secret).encode()).decode('ascii')
+    auth_token = 'Basic ' + base64.b64encode("{}:{}".format(client_id, client_secret).encode()).decode('ascii')
     headers = {'Authorization':auth_token}
+    print("\nAuth Token: " + auth_token)
+    print("")
+    print(headers)
     return headers
 
 def get_api_response(portal_name, portal_id, client_id, client_secret):
@@ -46,8 +54,9 @@ client_id = ConfigSectionMap("udemy")['client id']
 client_secret = ConfigSectionMap("udemy")['secret id']
 Org = ConfigSectionMap("udemy")['org id']
 
-print("Name of site: " + Name)
+print("\nName of site: " + Name)
 print("Site URL: " + Url)
 print("Client id: " + client_id)
 print("API key: " + client_secret)
 print("Org id: " + Org)
+get_base64_encoded_header(client_id, client_secret)
